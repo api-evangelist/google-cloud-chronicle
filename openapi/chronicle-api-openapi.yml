@@ -1,0 +1,385 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Chronicle API
+  description: >-
+    The Chronicle API provides programmatic access to Google Cloud's security
+    analytics platform. It supports ingesting security telemetry, searching
+    security data using UDM, managing detection rules, investigating alerts,
+    and accessing threat intelligence.
+  version: v1alpha
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/chronicle/docs/support
+  termsOfService: https://cloud.google.com/terms
+externalDocs:
+  description: Chronicle API Documentation
+  url: https://cloud.google.com/chronicle/docs/reference/rest
+servers:
+  - url: https://chronicle.googleapis.com/v1alpha
+    description: Production Server
+tags:
+  - name: Events
+    description: Operations for searching and retrieving security events
+  - name: Rules
+    description: Operations for managing detection rules
+  - name: Alerts
+    description: Operations for managing security alerts
+  - name: Feeds
+    description: Operations for managing data ingestion feeds
+  - name: ReferenceLists
+    description: Operations for managing reference lists
+security:
+  - oauth2: []
+paths:
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/rules:
+    get:
+      operationId: listRules
+      summary: List detection rules
+      description: Lists detection rules in a Chronicle instance.
+      tags:
+        - Rules
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRulesResponse'
+    post:
+      operationId: createRule
+      summary: Create a detection rule
+      description: Creates a new detection rule in a Chronicle instance.
+      tags:
+        - Rules
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}:
+    get:
+      operationId: getRule
+      summary: Get a detection rule
+      description: Gets a detection rule by resource name.
+      tags:
+        - Rules
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/ruleId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+    patch:
+      operationId: updateRule
+      summary: Update a detection rule
+      description: Updates an existing detection rule.
+      tags:
+        - Rules
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/ruleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+    delete:
+      operationId: deleteRule
+      summary: Delete a detection rule
+      description: Deletes a detection rule.
+      tags:
+        - Rules
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/ruleId'
+      responses:
+        '200':
+          description: Successful response
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/alerts:
+    get:
+      operationId: listAlerts
+      summary: List alerts
+      description: Lists alerts in a Chronicle instance.
+      tags:
+        - Alerts
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+        - name: filter
+          in: query
+          description: Filter expression for alerts
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAlertsResponse'
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds:
+    get:
+      operationId: listFeeds
+      summary: List feeds
+      description: Lists data ingestion feeds in a Chronicle instance.
+      tags:
+        - Feeds
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFeedsResponse'
+    post:
+      operationId: createFeed
+      summary: Create a feed
+      description: Creates a new data ingestion feed.
+      tags:
+        - Feeds
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feed'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feed'
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists:
+    get:
+      operationId: listReferenceLists
+      summary: List reference lists
+      description: Lists reference lists in a Chronicle instance.
+      tags:
+        - ReferenceLists
+      parameters:
+        - $ref: '#/components/parameters/projectId'
+        - $ref: '#/components/parameters/location'
+        - $ref: '#/components/parameters/instanceId'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListReferenceListsResponse'
+components:
+  parameters:
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+    ruleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+  schemas:
+    Rule:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the rule
+        text:
+          type: string
+          description: The YARA-L 2.0 rule text
+        displayName:
+          type: string
+          description: Display name for the rule
+        severity:
+          type: string
+          enum: [INFORMATIONAL, LOW, MEDIUM, HIGH, CRITICAL]
+        enabled:
+          type: boolean
+          description: Whether the rule is enabled
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    Alert:
+      type: object
+      properties:
+        name:
+          type: string
+        ruleName:
+          type: string
+        severity:
+          type: string
+          enum: [INFORMATIONAL, LOW, MEDIUM, HIGH, CRITICAL]
+        state:
+          type: string
+          enum: [NEW, IN_PROGRESS, CLOSED]
+        createTime:
+          type: string
+          format: date-time
+        feedback:
+          type: string
+          enum: [TRUE_POSITIVE, FALSE_POSITIVE]
+    Feed:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the feed
+        displayName:
+          type: string
+        sourceType:
+          type: string
+          description: The type of data source
+        logType:
+          type: string
+          description: The log type for the feed
+        state:
+          type: string
+          enum: [ACTIVE, INACTIVE]
+        feedSourceDetails:
+          type: object
+          description: Source-specific configuration
+    ReferenceList:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        lines:
+          type: array
+          items:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    ListRulesResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        nextPageToken:
+          type: string
+    ListAlertsResponse:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+        nextPageToken:
+          type: string
+    ListFeedsResponse:
+      type: object
+      properties:
+        feeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feed'
+        nextPageToken:
+          type: string
+    ListReferenceListsResponse:
+      type: object
+      properties:
+        referenceLists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferenceList'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud

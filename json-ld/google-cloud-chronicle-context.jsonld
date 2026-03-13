@@ -1,0 +1,67 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "chronicle": "https://cloud.google.com/chronicle/ns/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "UDMEvent": {
+      "@id": "chronicle:UDMEvent",
+      "@context": {
+        "metadata": "chronicle:metadata",
+        "principal": "chronicle:principal",
+        "target": "chronicle:target",
+        "src": "chronicle:src",
+        "observer": "chronicle:observer",
+        "securityResult": "chronicle:securityResult",
+        "network": "chronicle:network"
+      }
+    },
+
+    "Rule": {
+      "@id": "chronicle:Rule",
+      "@context": {
+        "name": "chronicle:ruleName",
+        "displayName": "schema:name",
+        "text": "chronicle:ruleText",
+        "severity": "chronicle:severity",
+        "enabled": "chronicle:enabled",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Alert": {
+      "@id": "chronicle:Alert",
+      "@context": {
+        "name": "chronicle:alertName",
+        "ruleName": "chronicle:ruleName",
+        "severity": "chronicle:severity",
+        "state": "chronicle:alertState",
+        "feedback": "chronicle:feedback",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Feed": {
+      "@id": "chronicle:Feed",
+      "@context": {
+        "name": "chronicle:feedName",
+        "displayName": "schema:name",
+        "sourceType": "chronicle:sourceType",
+        "logType": "chronicle:logType",
+        "state": "chronicle:feedState"
+      }
+    }
+  }
+}

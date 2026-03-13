@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cloud.google.com/schemas/chronicle/event.json",
+  "title": "Google Cloud Chronicle UDM Event",
+  "description": "Schema for a Chronicle Unified Data Model (UDM) event, representing a normalized security telemetry event.",
+  "type": "object",
+  "required": ["metadata"],
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/Metadata",
+      "description": "Event metadata including type, timestamps, and identifiers"
+    },
+    "principal": {
+      "$ref": "#/$defs/Entity",
+      "description": "The entity that initiated the event"
+    },
+    "target": {
+      "$ref": "#/$defs/Entity",
+      "description": "The entity that the event targets"
+    },
+    "src": {
+      "$ref": "#/$defs/Entity",
+      "description": "The source entity in network events"
+    },
+    "observer": {
+      "$ref": "#/$defs/Entity",
+      "description": "The entity that observed or reported the event"
+    },
+    "securityResult": {
+      "type": "array",
+      "description": "Security results associated with the event",
+      "items": {
+        "$ref": "#/$defs/SecurityResult"
+      }
+    },
+    "network": {
+      "$ref": "#/$defs/Network",
+      "description": "Network-related event information"
+    }
+  },
+  "$defs": {
+    "Metadata": {
+      "type": "object",
+      "description": "Event metadata",
+      "required": ["eventType"],
+      "properties": {
+        "eventType": {
+          "type": "string",
+          "description": "The type of the event",
+          "enum": [
+            "NETWORK_CONNECTION",
+            "NETWORK_HTTP",
+            "NETWORK_DNS",
+            "FILE_CREATION",
+            "FILE_DELETION",
+            "FILE_MODIFICATION",
+            "PROCESS_LAUNCH",
+            "PROCESS_TERMINATION",
+            "USER_LOGIN",
+            "USER_LOGOUT",
+            "REGISTRY_CREATION",
+            "REGISTRY_MODIFICATION",
+            "GENERIC_EVENT",
+            "STATUS_UPDATE"
+          ]
+        },
+        "eventTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp of the event"
+        },
+        "collectedTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the event was collected"
+        },
+        "productName": {
+          "type": "string",
+          "description": "The name of the product that generated the event"
+        },
+        "vendorName": {
+          "type": "string",
+          "description": "The name of the vendor of the product"
+        },
+        "productLogId": {
+          "type": "string",
+          "description": "Product-specific log identifier"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the event"
+        }
+      }
+    },
+    "Entity": {
+      "type": "object",
+      "description": "An entity (host, user, process, etc.)",
+      "properties": {
+        "hostname": {
+          "type": "string",
+          "description": "The hostname of the entity"
+        },
+        "ip": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "IP addresses associated with the entity"
+        },
+        "mac": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "MAC addresses associated with the entity"
+        },
+        "user": {
+          "type": "object",
+          "properties": {
+            "userid": {
+              "type": "string"
+            },
+            "emailAddresses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "process": {
+          "type": "object",
+          "properties": {
+            "pid": {
+              "type": "string"
+            },
+            "file": {
+              "type": "object",
+              "properties": {
+                "fullPath": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                }
+              }
+            },
+            "commandLine": {
+              "type": "string"
+            }
+          }
+        },
+        "port": {
+          "type": "integer",
+          "description": "The port number"
+        }
+      }
+    },
+    "SecurityResult": {
+      "type": "object",
+      "description": "A security result associated with the event",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["ALLOW", "BLOCK", "QUARANTINE", "UNKNOWN_ACTION"]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["INFORMATIONAL", "LOW", "MEDIUM", "HIGH", "CRITICAL"]
+        },
+        "category": {
+          "type": "string",
+          "description": "The category of the security result"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Summary of the security result"
+        },
+        "ruleName": {
+          "type": "string",
+          "description": "The rule that triggered the security result"
+        }
+      }
+    },
+    "Network": {
+      "type": "object",
+      "description": "Network event information",
+      "properties": {
+        "ipProtocol": {
+          "type": "string",
+          "enum": ["TCP", "UDP", "ICMP"]
+        },
+        "applicationProtocol": {
+          "type": "string",
+          "enum": ["HTTP", "HTTPS", "DNS", "SMTP", "SSH", "FTP"]
+        },
+        "sentBytes": {
+          "type": "integer"
+        },
+        "receivedBytes": {
+          "type": "integer"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["INBOUND", "OUTBOUND"]
+        }
+      }
+    }
+  }
+}
