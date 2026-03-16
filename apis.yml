@@ -1,3 +1,4 @@
+aid: google-cloud-chronicle
 name: Google Cloud Chronicle
 description: >-
   Google Cloud Chronicle is a cloud-native security information and event
@@ -9,8 +10,9 @@ description: >-
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-chronicle/refs/heads/main/apis.yml
 created: '2026-03-13'
-modified: '2026-03-13'
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+type: Index
 tags:
 - SIEM
 - Security Analytics
@@ -40,19 +42,29 @@ apis:
     url: https://cloud.google.com/chronicle/docs/reference/rest
   - type: OpenAPI
     url: openapi/chronicle-api-openapi.yml
+  - type: Authentication
+    url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
   - type: JSONSchema
     url: json-schema/google-cloud-chronicle-event-schema.json
 common:
-- type: GettingStarted
+- type: Portal
+  url: https://cloud.google.com/chronicle
+- type: Getting Started
   url: https://cloud.google.com/chronicle/docs/get-started
-- type: Pricing
-  url: https://cloud.google.com/chronicle/pricing
+- type: Documentation
+  url: https://cloud.google.com/chronicle/docs
 - type: Authentication
   url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
-- type: Support
-  url: https://cloud.google.com/chronicle/docs/support
+- type: Pricing
+  url: https://cloud.google.com/chronicle/pricing
+- type: Terms of Service
+  url: https://cloud.google.com/terms
+- type: Privacy Policy
+  url: https://policies.google.com/privacy
 - type: Status
   url: https://status.cloud.google.com
+- type: Support
+  url: https://cloud.google.com/chronicle/docs/support
 - type: JSON-LD
   url: json-ld/google-cloud-chronicle-context.jsonld
 maintainers:
