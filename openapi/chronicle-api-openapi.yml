@@ -18,16 +18,14 @@ servers:
   - url: https://chronicle.googleapis.com/v1alpha
     description: Production Server
 tags:
-  - name: Events
-    description: Operations for searching and retrieving security events
-  - name: Rules
-    description: Operations for managing detection rules
   - name: Alerts
     description: Operations for managing security alerts
   - name: Feeds
     description: Operations for managing data ingestion feeds
   - name: ReferenceLists
     description: Operations for managing reference lists
+  - name: Rules
+    description: Operations for managing detection rules
 security:
   - oauth2: []
 paths:
