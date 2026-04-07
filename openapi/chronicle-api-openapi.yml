@@ -34,7 +34,7 @@ paths:
   /projects/{projectId}/locations/{location}/instances/{instanceId}/rules:
     get:
       operationId: listRules
-      summary: List detection rules
+      summary: Google Cloud Chronicle List detection rules
       description: Lists detection rules in a Chronicle instance.
       tags:
         - Rules
@@ -53,7 +53,7 @@ paths:
                 $ref: '#/components/schemas/ListRulesResponse'
     post:
       operationId: createRule
-      summary: Create a detection rule
+      summary: Google Cloud Chronicle Create a detection rule
       description: Creates a new detection rule in a Chronicle instance.
       tags:
         - Rules
@@ -77,7 +77,7 @@ paths:
   /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}:
     get:
       operationId: getRule
-      summary: Get a detection rule
+      summary: Google Cloud Chronicle Get a detection rule
       description: Gets a detection rule by resource name.
       tags:
         - Rules
@@ -95,7 +95,7 @@ paths:
                 $ref: '#/components/schemas/Rule'
     patch:
       operationId: updateRule
-      summary: Update a detection rule
+      summary: Google Cloud Chronicle Update a detection rule
       description: Updates an existing detection rule.
       tags:
         - Rules
@@ -119,7 +119,7 @@ paths:
                 $ref: '#/components/schemas/Rule'
     delete:
       operationId: deleteRule
-      summary: Delete a detection rule
+      summary: Google Cloud Chronicle Delete a detection rule
       description: Deletes a detection rule.
       tags:
         - Rules
@@ -134,7 +134,7 @@ paths:
   /projects/{projectId}/locations/{location}/instances/{instanceId}/alerts:
     get:
       operationId: listAlerts
-      summary: List alerts
+      summary: Google Cloud Chronicle List alerts
       description: Lists alerts in a Chronicle instance.
       tags:
         - Alerts
@@ -159,7 +159,7 @@ paths:
   /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds:
     get:
       operationId: listFeeds
-      summary: List feeds
+      summary: Google Cloud Chronicle List feeds
       description: Lists data ingestion feeds in a Chronicle instance.
       tags:
         - Feeds
@@ -178,7 +178,7 @@ paths:
                 $ref: '#/components/schemas/ListFeedsResponse'
     post:
       operationId: createFeed
-      summary: Create a feed
+      summary: Google Cloud Chronicle Create a feed
       description: Creates a new data ingestion feed.
       tags:
         - Feeds
@@ -202,7 +202,7 @@ paths:
   /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists:
     get:
       operationId: listReferenceLists
-      summary: List reference lists
+      summary: Google Cloud Chronicle List reference lists
       description: Lists reference lists in a Chronicle instance.
       tags:
         - ReferenceLists
