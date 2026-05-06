@@ -1,0 +1,317 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Chronicle API
+  description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting
+    security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat
+    intelligence.
+  tags:
+  - Google
+  - Cloud
+  - Chronicle
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-chronicle
+    baseUri: https://chronicle.googleapis.com/v1alpha
+    description: Google Cloud Chronicle API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_CHRONICLE_TOKEN}}'
+    resources:
+    - name: projects-projectid-locations-location-instances-
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules
+      operations:
+      - name: listrules
+        method: GET
+        description: Google Cloud Chronicle List detection rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createrule
+        method: POST
+        description: Google Cloud Chronicle Create a detection rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-instances-
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}
+      operations:
+      - name: getrule
+        method: GET
+        description: Google Cloud Chronicle Get a detection rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updaterule
+        method: PATCH
+        description: Google Cloud Chronicle Update a detection rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleterule
+        method: DELETE
+        description: Google Cloud Chronicle Delete a detection rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-instances-
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/alerts
+      operations:
+      - name: listalerts
+        method: GET
+        description: Google Cloud Chronicle List alerts
+        inputParameters:
+        - name: filter
+          in: query
+          type: string
+          description: Filter expression for alerts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-instances-
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds
+      operations:
+      - name: listfeeds
+        method: GET
+        description: Google Cloud Chronicle List feeds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createfeed
+        method: POST
+        description: Google Cloud Chronicle Create a feed
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-instances-
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists
+      operations:
+      - name: listreferencelists
+        method: GET
+        description: Google Cloud Chronicle List reference lists
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-chronicle-rest
+    description: REST adapter for Google Cloud Chronicle API.
+    resources:
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules
+      name: listrules
+      operations:
+      - method: GET
+        name: listrules
+        description: Google Cloud Chronicle List detection rules
+        call: google-cloud-chronicle.listrules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules
+      name: createrule
+      operations:
+      - method: POST
+        name: createrule
+        description: Google Cloud Chronicle Create a detection rule
+        call: google-cloud-chronicle.createrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}
+      name: getrule
+      operations:
+      - method: GET
+        name: getrule
+        description: Google Cloud Chronicle Get a detection rule
+        call: google-cloud-chronicle.getrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}
+      name: updaterule
+      operations:
+      - method: PATCH
+        name: updaterule
+        description: Google Cloud Chronicle Update a detection rule
+        call: google-cloud-chronicle.updaterule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}
+      name: deleterule
+      operations:
+      - method: DELETE
+        name: deleterule
+        description: Google Cloud Chronicle Delete a detection rule
+        call: google-cloud-chronicle.deleterule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/alerts
+      name: listalerts
+      operations:
+      - method: GET
+        name: listalerts
+        description: Google Cloud Chronicle List alerts
+        call: google-cloud-chronicle.listalerts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds
+      name: listfeeds
+      operations:
+      - method: GET
+        name: listfeeds
+        description: Google Cloud Chronicle List feeds
+        call: google-cloud-chronicle.listfeeds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds
+      name: createfeed
+      operations:
+      - method: POST
+        name: createfeed
+        description: Google Cloud Chronicle Create a feed
+        call: google-cloud-chronicle.createfeed
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists
+      name: listreferencelists
+      operations:
+      - method: GET
+        name: listreferencelists
+        description: Google Cloud Chronicle List reference lists
+        call: google-cloud-chronicle.listreferencelists
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-chronicle-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Chronicle API for AI agent use.
+    tools:
+    - name: listrules
+      description: Google Cloud Chronicle List detection rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-chronicle.listrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createrule
+      description: Google Cloud Chronicle Create a detection rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-chronicle.createrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getrule
+      description: Google Cloud Chronicle Get a detection rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-chronicle.getrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updaterule
+      description: Google Cloud Chronicle Update a detection rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-chronicle.updaterule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deleterule
+      description: Google Cloud Chronicle Delete a detection rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-chronicle.deleterule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listalerts
+      description: Google Cloud Chronicle List alerts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-chronicle.listalerts
+      with:
+        filter: tools.filter
+      inputParameters:
+      - name: filter
+        type: string
+        description: Filter expression for alerts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfeeds
+      description: Google Cloud Chronicle List feeds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-chronicle.listfeeds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createfeed
+      description: Google Cloud Chronicle Create a feed
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-chronicle.createfeed
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listreferencelists
+      description: Google Cloud Chronicle List reference lists
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-chronicle.listreferencelists
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_CHRONICLE_TOKEN: GOOGLE_CLOUD_CHRONICLE_TOKEN
