@@ -49,7 +49,7 @@ apis:
 common:
   - type: Portal
     url: https://cloud.google.com/chronicle
-  - type: Getting Started
+  - type: GettingStarted
     url: https://cloud.google.com/chronicle/docs/get-started
   - type: Documentation
     url: https://cloud.google.com/chronicle/docs
@@ -57,15 +57,15 @@ common:
     url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
   - type: Pricing
     url: https://cloud.google.com/chronicle/pricing
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://cloud.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com
   - type: Support
     url: https://cloud.google.com/chronicle/docs/support
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/google-cloud-chronicle-context.jsonld
   - type: Integrations
     url: https://cloud.google.com/marketplace
