@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Chronicle API — ReferenceLists
+  description: 'Google Cloud Chronicle API — ReferenceLists. 1 operations. Lead operation: Google Cloud Chronicle List reference
+    lists. Self-contained Naftiko capability covering one Google Cloud Chronicle business surface.'
+  tags:
+  - Google Cloud Chronicle
+  - ReferenceLists
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_CHRONICLE_API_KEY: GOOGLE_CLOUD_CHRONICLE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: chronicle-referencelists
+    baseUri: https://chronicle.googleapis.com/v1alpha
+    description: Google Cloud Chronicle API — ReferenceLists business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations-location-instances-instanceId-referenceLists
+      path: /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists
+      operations:
+      - name: listreferencelists
+        method: GET
+        description: Google Cloud Chronicle List reference lists
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_CHRONICLE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: chronicle-referencelists-rest
+    port: 8080
+    description: REST adapter for Google Cloud Chronicle API — ReferenceLists. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations/{location}/instances/{instanceid}/referencelists
+      name: projects-projectid-locations-location-instances-instanceid-referencelists
+      description: REST surface for projects-projectId-locations-location-instances-instanceId-referenceLists.
+      operations:
+      - method: GET
+        name: listreferencelists
+        description: Google Cloud Chronicle List reference lists
+        call: chronicle-referencelists.listreferencelists
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: chronicle-referencelists-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Chronicle API — ReferenceLists. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: google-cloud-chronicle-list-reference
+      description: Google Cloud Chronicle List reference lists
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: chronicle-referencelists.listreferencelists
+      outputParameters:
+      - type: object
+        mapping: $.
