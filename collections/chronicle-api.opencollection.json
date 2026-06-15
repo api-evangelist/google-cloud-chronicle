@@ -1,0 +1,379 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Chronicle API",
+    "version": "v1alpha"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Chronicle List detection rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/rules",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists detection rules in a Chronicle instance."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Chronicle Create a detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/rules",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new detection rule in a Chronicle instance."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Chronicle Get a detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a detection rule by resource name."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Chronicle Update a detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing detection rule."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Chronicle Delete a detection rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ruleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a detection rule."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Chronicle List alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/alerts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression for alerts"
+              }
+            ]
+          },
+          "docs": "Lists alerts in a Chronicle instance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Feeds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Chronicle List feeds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/feeds",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists data ingestion feeds in a Chronicle instance."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Chronicle Create a feed",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/feeds",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new data ingestion feed."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ReferenceLists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Chronicle List reference lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/referenceLists",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists reference lists in a Chronicle instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
