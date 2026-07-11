@@ -43,6 +43,8 @@ apis:
       - type: JSONSchema
         url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: OAuthScopes
+    url: scopes/google-cloud-chronicle-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/chronicle
   - type: LinkedIn
