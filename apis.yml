@@ -43,6 +43,12 @@ apis:
       - type: JSONSchema
         url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: VulnerabilityDisclosure
+    url: security/google-cloud-chronicle-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/google-cloud-chronicle-domain-security.yml
+  - type: Authentication
+    url: authentication/google-cloud-chronicle-authentication.yml
   - type: OAuthScopes
     url: scopes/google-cloud-chronicle-scopes.yml
   - type: GitHubOrganization
