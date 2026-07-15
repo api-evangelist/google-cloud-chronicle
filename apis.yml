@@ -43,6 +43,8 @@ apis:
       - type: JSONSchema
         url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-cloud-chronicle-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/google-cloud-chronicle-vulnerability-disclosure.yml
   - type: DomainSecurity
