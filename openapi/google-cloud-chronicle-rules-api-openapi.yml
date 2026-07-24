@@ -1,0 +1,205 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Chronicle Alerts Rules API
+  description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
+  version: v1alpha
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/chronicle/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://chronicle.googleapis.com/v1alpha
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Rules
+  description: Operations for managing detection rules
+paths:
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/rules:
+    get:
+      operationId: listRules
+      summary: Google Cloud Chronicle List detection rules
+      description: Lists detection rules in a Chronicle instance.
+      tags:
+      - Rules
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRulesResponse'
+    post:
+      operationId: createRule
+      summary: Google Cloud Chronicle Create a detection rule
+      description: Creates a new detection rule in a Chronicle instance.
+      tags:
+      - Rules
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/rules/{ruleId}:
+    get:
+      operationId: getRule
+      summary: Google Cloud Chronicle Get a detection rule
+      description: Gets a detection rule by resource name.
+      tags:
+      - Rules
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/ruleId'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+    patch:
+      operationId: updateRule
+      summary: Google Cloud Chronicle Update a detection rule
+      description: Updates an existing detection rule.
+      tags:
+      - Rules
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/ruleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rule'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rule'
+    delete:
+      operationId: deleteRule
+      summary: Google Cloud Chronicle Delete a detection rule
+      description: Deletes a detection rule.
+      tags:
+      - Rules
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/ruleId'
+      responses:
+        '200':
+          description: Successful response
+components:
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    ruleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Rule:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the rule
+        text:
+          type: string
+          description: The YARA-L 2.0 rule text
+        displayName:
+          type: string
+          description: Display name for the rule
+        severity:
+          type: string
+          enum:
+          - INFORMATIONAL
+          - LOW
+          - MEDIUM
+          - HIGH
+          - CRITICAL
+        enabled:
+          type: boolean
+          description: Whether the rule is enabled
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    ListRulesResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        nextPageToken:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Chronicle API Documentation
+  url: https://cloud.google.com/chronicle/docs/reference/rest

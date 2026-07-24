@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Chronicle Alerts API
+  description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
+  version: v1alpha
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/chronicle/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://chronicle.googleapis.com/v1alpha
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Alerts
+  description: Operations for managing security alerts
+paths:
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/alerts:
+    get:
+      operationId: listAlerts
+      summary: Google Cloud Chronicle List alerts
+      description: Lists alerts in a Chronicle instance.
+      tags:
+      - Alerts
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      - name: filter
+        in: query
+        description: Filter expression for alerts
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAlertsResponse'
+components:
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    ListAlertsResponse:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+        nextPageToken:
+          type: string
+    Alert:
+      type: object
+      properties:
+        name:
+          type: string
+        ruleName:
+          type: string
+        severity:
+          type: string
+          enum:
+          - INFORMATIONAL
+          - LOW
+          - MEDIUM
+          - HIGH
+          - CRITICAL
+        state:
+          type: string
+          enum:
+          - NEW
+          - IN_PROGRESS
+          - CLOSED
+        createTime:
+          type: string
+          format: date-time
+        feedback:
+          type: string
+          enum:
+          - TRUE_POSITIVE
+          - FALSE_POSITIVE
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Chronicle API Documentation
+  url: https://cloud.google.com/chronicle/docs/reference/rest

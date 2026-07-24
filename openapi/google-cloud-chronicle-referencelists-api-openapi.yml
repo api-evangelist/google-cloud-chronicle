@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Chronicle Alerts ReferenceLists API
+  description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
+  version: v1alpha
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/chronicle/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://chronicle.googleapis.com/v1alpha
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: ReferenceLists
+  description: Operations for managing reference lists
+paths:
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/referenceLists:
+    get:
+      operationId: listReferenceLists
+      summary: Google Cloud Chronicle List reference lists
+      description: Lists reference lists in a Chronicle instance.
+      tags:
+      - ReferenceLists
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListReferenceListsResponse'
+components:
+  schemas:
+    ReferenceList:
+      type: object
+      properties:
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        lines:
+          type: array
+          items:
+            type: string
+        createTime:
+          type: string
+          format: date-time
+        updateTime:
+          type: string
+          format: date-time
+    ListReferenceListsResponse:
+      type: object
+      properties:
+        referenceLists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferenceList'
+        nextPageToken:
+          type: string
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Chronicle API Documentation
+  url: https://cloud.google.com/chronicle/docs/reference/rest

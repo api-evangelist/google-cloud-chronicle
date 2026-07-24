@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Chronicle Alerts Feeds API
+  description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
+  version: v1alpha
+  contact:
+    name: Google Cloud Support
+    url: https://cloud.google.com/chronicle/docs/support
+  termsOfService: https://cloud.google.com/terms
+servers:
+- url: https://chronicle.googleapis.com/v1alpha
+  description: Production Server
+security:
+- oauth2: []
+tags:
+- name: Feeds
+  description: Operations for managing data ingestion feeds
+paths:
+  /projects/{projectId}/locations/{location}/instances/{instanceId}/feeds:
+    get:
+      operationId: listFeeds
+      summary: Google Cloud Chronicle List feeds
+      description: Lists data ingestion feeds in a Chronicle instance.
+      tags:
+      - Feeds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageToken'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFeedsResponse'
+    post:
+      operationId: createFeed
+      summary: Google Cloud Chronicle Create a feed
+      description: Creates a new data ingestion feed.
+      tags:
+      - Feeds
+      parameters:
+      - $ref: '#/components/parameters/projectId'
+      - $ref: '#/components/parameters/location'
+      - $ref: '#/components/parameters/instanceId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Feed'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feed'
+components:
+  parameters:
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    ListFeedsResponse:
+      type: object
+      properties:
+        feeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feed'
+        nextPageToken:
+          type: string
+    Feed:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The resource name of the feed
+        displayName:
+          type: string
+        sourceType:
+          type: string
+          description: The type of data source
+        logType:
+          type: string
+          description: The log type for the feed
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+        feedSourceDetails:
+          type: object
+          description: Source-specific configuration
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud
+externalDocs:
+  description: Chronicle API Documentation
+  url: https://cloud.google.com/chronicle/docs/reference/rest
