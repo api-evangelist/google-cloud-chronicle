@@ -5,7 +5,20 @@ description: >-
   enterprises to store, search, and analyze massive volumes of security telemetry data. Built on Google infrastructure,
   Chronicle provides sub-second search across petabytes of security data, threat detection using rules and intelligence,
   and investigation tools for security operations teams.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-chronicle.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-chronicle/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -19,30 +32,73 @@ tags:
   - SIEM
   - Threat Detection
 apis:
-  - name: Chronicle API
-    description: >-
-      The Chronicle API provides programmatic access to Chronicle's security analytics platform. Developers can use the
-      API to ingest security telemetry, search across normalized security data using UDM (Unified Data Model), manage
-      detection rules, investigate alerts, and retrieve threat intelligence. The API supports creating and managing
-      detection rules, running retrohunts, and accessing curated threat detections.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/chronicle/docs
-    baseURL: https://chronicle.googleapis.com
-    tags:
-      - Detection Rules
-      - Security Events
-      - Threat Intelligence
-      - UDM Search
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/chronicle/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/chronicle-api-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
-      - type: JSONSchema
-        url: json-schema/google-cloud-chronicle-event-schema.json
+- aid: google-cloud-chronicle:google-cloud-chronicle-alerts-api
+  name: Google Cloud Chronicle Alerts API
+  description: Operations for managing security alerts
+  humanURL: https://cloud.google.com/chronicle/docs
+  baseURL: https://chronicle.googleapis.com
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-chronicle-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/chronicle/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-chronicle-event-schema.json
+- aid: google-cloud-chronicle:google-cloud-chronicle-feeds-api
+  name: Google Cloud Chronicle Feeds API
+  description: Operations for managing data ingestion feeds
+  humanURL: https://cloud.google.com/chronicle/docs
+  baseURL: https://chronicle.googleapis.com
+  tags:
+  - Feeds
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-chronicle-feeds-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/chronicle/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-chronicle-event-schema.json
+- aid: google-cloud-chronicle:google-cloud-chronicle-referencelists-api
+  name: Google Cloud Chronicle ReferenceLists API
+  description: Operations for managing reference lists
+  humanURL: https://cloud.google.com/chronicle/docs
+  baseURL: https://chronicle.googleapis.com
+  tags:
+  - ReferenceLists
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-chronicle-referencelists-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/chronicle/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-chronicle-event-schema.json
+- aid: google-cloud-chronicle:google-cloud-chronicle-rules-api
+  name: Google Cloud Chronicle Rules API
+  description: Operations for managing detection rules
+  humanURL: https://cloud.google.com/chronicle/docs
+  baseURL: https://chronicle.googleapis.com
+  tags:
+  - Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-chronicle-rules-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/chronicle/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/chronicle/docs/reference/rest#authentication
+  - type: JSONSchema
+    url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-chronicle/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-chronicle-agentic-access.yml
   - type: VulnerabilityDisclosure
