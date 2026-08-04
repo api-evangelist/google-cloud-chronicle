@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "cc9ebecb-40fb-4721-b2e4-a1bbf6aab965",
+    "name": "Google Cloud Chronicle Alerts ReferenceLists API",
+    "description": "The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:32.000Z",
+    "updatedAt": "2026-07-28T01:46:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc9ebecb-40fb-4721-b2e4-a1bbf6aab965"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "instances",
+                      "item": [
+                        {
+                          "name": "{instanceId}",
+                          "item": [
+                            {
+                              "name": "referenceLists",
+                              "item": [
+                                {
+                                  "name": "Google Cloud Chronicle List reference lists",
+                                  "id": "2fd8baf1-cc6c-46d0-851a-2db4c2b12724",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/referenceLists?pageSize=<integer>&pageToken=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "instances",
+                                        ":instanceId",
+                                        "referenceLists"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "pageToken",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "3496128d-206b-40b1-9cd9-86f13c0d27df",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "fe78b200-1572-4465-b193-9d6887fc2455",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "d861e635-6194-4384-8607-f75c0d3445fe",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Lists reference lists in a Chronicle instance."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "24237a9f-25e6-4cd3-ab68-a1ce2dfb24f3",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/referenceLists?pageSize=<integer>&pageToken=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "referenceLists"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "pageSize",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "instanceId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"referenceLists\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"lines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:46:32.000Z",
+                                      "updatedAt": "2026-07-28T01:46:32.000Z",
+                                      "uid": "35240-24237a9f-25e6-4cd3-ab68-a1ce2dfb24f3"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:46:32.000Z",
+                                  "updatedAt": "2026-07-28T01:46:32.000Z",
+                                  "uid": "35240-2fd8baf1-cc6c-46d0-851a-2db4c2b12724"
+                                }
+                              ],
+                              "id": "365739d1-0d70-4818-8e2e-32e4323a8b75",
+                              "createdAt": "2026-07-28T01:46:32.000Z",
+                              "updatedAt": "2026-07-28T01:46:32.000Z",
+                              "uid": "35240-365739d1-0d70-4818-8e2e-32e4323a8b75"
+                            }
+                          ],
+                          "id": "7a100f06-f969-40f4-a896-f1c78a6f7826",
+                          "createdAt": "2026-07-28T01:46:32.000Z",
+                          "updatedAt": "2026-07-28T01:46:32.000Z",
+                          "uid": "35240-7a100f06-f969-40f4-a896-f1c78a6f7826"
+                        }
+                      ],
+                      "id": "0d2f485f-588d-4b7c-a1b0-219a292be37f",
+                      "createdAt": "2026-07-28T01:46:32.000Z",
+                      "updatedAt": "2026-07-28T01:46:32.000Z",
+                      "uid": "35240-0d2f485f-588d-4b7c-a1b0-219a292be37f"
+                    }
+                  ],
+                  "id": "cdc9ac1f-2532-4360-91cf-f03cc61347cf",
+                  "createdAt": "2026-07-28T01:46:32.000Z",
+                  "updatedAt": "2026-07-28T01:46:32.000Z",
+                  "uid": "35240-cdc9ac1f-2532-4360-91cf-f03cc61347cf"
+                }
+              ],
+              "id": "41be43f0-443f-43d9-ac25-b164b56453f5",
+              "createdAt": "2026-07-28T01:46:32.000Z",
+              "updatedAt": "2026-07-28T01:46:32.000Z",
+              "uid": "35240-41be43f0-443f-43d9-ac25-b164b56453f5"
+            }
+          ],
+          "id": "983c58c2-7b4e-453a-a848-8a09fdf075ff",
+          "createdAt": "2026-07-28T01:46:32.000Z",
+          "updatedAt": "2026-07-28T01:46:32.000Z",
+          "uid": "35240-983c58c2-7b4e-453a-a848-8a09fdf075ff"
+        }
+      ],
+      "id": "2d794c42-6da3-405a-bffd-f64e8845d128",
+      "createdAt": "2026-07-28T01:46:32.000Z",
+      "updatedAt": "2026-07-28T01:46:32.000Z",
+      "uid": "35240-2d794c42-6da3-405a-bffd-f64e8845d128"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://chronicle.googleapis.com/v1alpha"
+    }
+  ]
+}

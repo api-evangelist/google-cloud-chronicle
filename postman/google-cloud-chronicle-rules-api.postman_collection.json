@@ -1,0 +1,792 @@
+{
+  "info": {
+    "_postman_id": "6733a48e-8eeb-4ce9-83c7-0b03b3bce1af",
+    "name": "Google Cloud Chronicle Alerts Rules API",
+    "description": "The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:32.000Z",
+    "updatedAt": "2026-07-28T01:46:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6733a48e-8eeb-4ce9-83c7-0b03b3bce1af"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "instances",
+                      "item": [
+                        {
+                          "name": "{instanceId}",
+                          "item": [
+                            {
+                              "name": "rules",
+                              "item": [
+                                {
+                                  "name": "{ruleId}",
+                                  "item": [
+                                    {
+                                      "name": "Google Cloud Chronicle Get a detection rule",
+                                      "id": "fbf8655c-8236-4d1a-aee5-d34d969316ec",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "rules",
+                                            ":ruleId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "529486ba-adcd-47b4-a403-a454580decd7",
+                                              "key": "projectId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "3f7ea415-0f5f-43c1-9ff8-2298c96cda4c",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "be3c5c8d-e48b-4a06-8d20-7a3846512aa1",
+                                              "key": "instanceId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "f4726e4c-d0ec-44e4-88f6-c0fd0bd4ab38",
+                                              "key": "ruleId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Gets a detection rule by resource name."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4d83f3d5-b4a9-442e-939a-21711d5f5a61",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "projects",
+                                                ":projectId",
+                                                "locations",
+                                                ":location",
+                                                "instances",
+                                                ":instanceId",
+                                                "rules",
+                                                ":ruleId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "projectId"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "instanceId"
+                                                },
+                                                {
+                                                  "key": "ruleId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                          "createdAt": "2026-07-28T01:46:33.000Z",
+                                          "updatedAt": "2026-07-28T01:46:33.000Z",
+                                          "uid": "35240-4d83f3d5-b4a9-442e-939a-21711d5f5a61"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:46:33.000Z",
+                                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                                      "uid": "35240-fbf8655c-8236-4d1a-aee5-d34d969316ec"
+                                    },
+                                    {
+                                      "name": "Google Cloud Chronicle Update a detection rule",
+                                      "id": "2e594a91-ba48-41f6-b60d-0c0181fa1b79",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "rules",
+                                            ":ruleId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "f32badf7-7e57-48e5-a51f-dba7e9018dde",
+                                              "key": "projectId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "696597d7-6cb7-433d-ab03-73a41e71d6de",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "b29185ce-538a-4d6a-91b7-44685e177f55",
+                                              "key": "instanceId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "056a82d4-4724-466d-a46f-8aba991ab97d",
+                                              "key": "ruleId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Updates an existing detection rule."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "6b89cabe-53f2-4455-9164-5abd22c29cab",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "projects",
+                                                ":projectId",
+                                                "locations",
+                                                ":location",
+                                                "instances",
+                                                ":instanceId",
+                                                "rules",
+                                                ":ruleId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "projectId"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "instanceId"
+                                                },
+                                                {
+                                                  "key": "ruleId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                          "createdAt": "2026-07-28T01:46:33.000Z",
+                                          "updatedAt": "2026-07-28T01:46:33.000Z",
+                                          "uid": "35240-6b89cabe-53f2-4455-9164-5abd22c29cab"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:46:33.000Z",
+                                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                                      "uid": "35240-2e594a91-ba48-41f6-b60d-0c0181fa1b79"
+                                    },
+                                    {
+                                      "name": "Google Cloud Chronicle Delete a detection rule",
+                                      "id": "59e14aec-756a-4741-adb3-6e1b28b3954a",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "rules",
+                                            ":ruleId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "afeab0ac-569d-41bc-af3d-b2322e3b88ee",
+                                              "key": "projectId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "52a4ab30-9ddc-4469-8c18-da1f069b4aec",
+                                              "key": "location",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "f23bd708-4908-4bfe-8ad3-abc809c8ca14",
+                                              "key": "instanceId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "925a371c-4a9f-41de-9ac4-d5e43007dec8",
+                                              "key": "ruleId",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deletes a detection rule."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "9e31b18e-b88e-477c-a75b-f4830beac113",
+                                          "name": "Successful response",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules/:ruleId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "projects",
+                                                ":projectId",
+                                                "locations",
+                                                ":location",
+                                                "instances",
+                                                ":instanceId",
+                                                "rules",
+                                                ":ruleId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "projectId"
+                                                },
+                                                {
+                                                  "key": "location"
+                                                },
+                                                {
+                                                  "key": "instanceId"
+                                                },
+                                                {
+                                                  "key": "ruleId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:46:33.000Z",
+                                          "updatedAt": "2026-07-28T01:46:33.000Z",
+                                          "uid": "35240-9e31b18e-b88e-477c-a75b-f4830beac113"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:46:33.000Z",
+                                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                                      "uid": "35240-59e14aec-756a-4741-adb3-6e1b28b3954a"
+                                    }
+                                  ],
+                                  "id": "57ed1a31-4b19-4d70-8043-e61f7ca2e4e2",
+                                  "createdAt": "2026-07-28T01:46:33.000Z",
+                                  "updatedAt": "2026-07-28T01:46:33.000Z",
+                                  "uid": "35240-57ed1a31-4b19-4d70-8043-e61f7ca2e4e2"
+                                },
+                                {
+                                  "name": "Google Cloud Chronicle List detection rules",
+                                  "id": "478fc89f-66fa-43ca-bd11-68d3559d3766",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules?pageSize=<integer>&pageToken=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "instances",
+                                        ":instanceId",
+                                        "rules"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "pageToken",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "42916bff-52e5-4671-a6b6-5a8e74327aaf",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "bfb889a7-b15b-4b4f-bbf9-d2ff840d48db",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "830e08de-286c-4736-9db0-b80a3b34a3ae",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Lists detection rules in a Chronicle instance."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "58c70a1f-fc3c-4cdb-bc87-d05a1edecaa7",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules?pageSize=<integer>&pageToken=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "rules"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "pageSize",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "instanceId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"rules\": [\n    {\n      \"name\": \"<string>\",\n      \"text\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"severity\": \"INFORMATIONAL\",\n      \"enabled\": \"<boolean>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"text\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"severity\": \"LOW\",\n      \"enabled\": \"<boolean>\",\n      \"createTime\": \"<dateTime>\",\n      \"updateTime\": \"<dateTime>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:46:33.000Z",
+                                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                                      "uid": "35240-58c70a1f-fc3c-4cdb-bc87-d05a1edecaa7"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:46:33.000Z",
+                                  "updatedAt": "2026-07-28T01:46:33.000Z",
+                                  "uid": "35240-478fc89f-66fa-43ca-bd11-68d3559d3766"
+                                },
+                                {
+                                  "name": "Google Cloud Chronicle Create a detection rule",
+                                  "id": "a3507bee-d546-47a6-b1cd-e1878ecf484a",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "instances",
+                                        ":instanceId",
+                                        "rules"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "eb25d209-1f14-4717-9e94-a5d99d6e53db",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "4fbe5d40-6a75-4e51-8a39-5956aee30122",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "fcfda15d-e54a-42f4-b64c-a45507cb2267",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a new detection rule in a Chronicle instance."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8ceebc42-e7c9-4dd9-96f2-4d2aeb43169e",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/rules",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "rules"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "instanceId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"text\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"severity\": \"HIGH\",\n  \"enabled\": \"<boolean>\",\n  \"createTime\": \"<dateTime>\",\n  \"updateTime\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T01:46:33.000Z",
+                                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                                      "uid": "35240-8ceebc42-e7c9-4dd9-96f2-4d2aeb43169e"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:46:33.000Z",
+                                  "updatedAt": "2026-07-28T01:46:33.000Z",
+                                  "uid": "35240-a3507bee-d546-47a6-b1cd-e1878ecf484a"
+                                }
+                              ],
+                              "id": "b9093a39-9e70-4fb8-b033-5a5153990c53",
+                              "createdAt": "2026-07-28T01:46:33.000Z",
+                              "updatedAt": "2026-07-28T01:46:33.000Z",
+                              "uid": "35240-b9093a39-9e70-4fb8-b033-5a5153990c53"
+                            }
+                          ],
+                          "id": "b517e8f6-4a5e-4f8b-8434-83bda19cbe3f",
+                          "createdAt": "2026-07-28T01:46:33.000Z",
+                          "updatedAt": "2026-07-28T01:46:33.000Z",
+                          "uid": "35240-b517e8f6-4a5e-4f8b-8434-83bda19cbe3f"
+                        }
+                      ],
+                      "id": "e9024c74-8000-4ae5-aa19-2a54a643422f",
+                      "createdAt": "2026-07-28T01:46:33.000Z",
+                      "updatedAt": "2026-07-28T01:46:33.000Z",
+                      "uid": "35240-e9024c74-8000-4ae5-aa19-2a54a643422f"
+                    }
+                  ],
+                  "id": "382d32f8-5a02-455b-a07f-d02f9ba908df",
+                  "createdAt": "2026-07-28T01:46:33.000Z",
+                  "updatedAt": "2026-07-28T01:46:33.000Z",
+                  "uid": "35240-382d32f8-5a02-455b-a07f-d02f9ba908df"
+                }
+              ],
+              "id": "671aa11f-a0c4-4da3-8885-14c74bcb73e5",
+              "createdAt": "2026-07-28T01:46:33.000Z",
+              "updatedAt": "2026-07-28T01:46:33.000Z",
+              "uid": "35240-671aa11f-a0c4-4da3-8885-14c74bcb73e5"
+            }
+          ],
+          "id": "13ddd8f5-be42-4b8c-a800-1764172a5d46",
+          "createdAt": "2026-07-28T01:46:33.000Z",
+          "updatedAt": "2026-07-28T01:46:33.000Z",
+          "uid": "35240-13ddd8f5-be42-4b8c-a800-1764172a5d46"
+        }
+      ],
+      "id": "1110ac30-a447-46b5-953a-7cf96fadd867",
+      "createdAt": "2026-07-28T01:46:33.000Z",
+      "updatedAt": "2026-07-28T01:46:33.000Z",
+      "uid": "35240-1110ac30-a447-46b5-953a-7cf96fadd867"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://chronicle.googleapis.com/v1alpha"
+    }
+  ]
+}

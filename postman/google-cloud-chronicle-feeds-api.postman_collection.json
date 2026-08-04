@@ -1,0 +1,388 @@
+{
+  "info": {
+    "_postman_id": "f2a158c2-2f2b-4b79-98ce-ccea208fb47c",
+    "name": "Google Cloud Chronicle Alerts Feeds API",
+    "description": "The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.\n\nContact Support:\n Name: Google Cloud Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:46:31.000Z",
+    "updatedAt": "2026-07-28T01:46:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f2a158c2-2f2b-4b79-98ce-ccea208fb47c"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "instances",
+                      "item": [
+                        {
+                          "name": "{instanceId}",
+                          "item": [
+                            {
+                              "name": "feeds",
+                              "item": [
+                                {
+                                  "name": "Google Cloud Chronicle List feeds",
+                                  "id": "ebab34c4-7ae6-4215-b58c-79f0e075ff4d",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/feeds?pageSize=<integer>&pageToken=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "instances",
+                                        ":instanceId",
+                                        "feeds"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "pageToken",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "50a5bd8e-2e37-4e6d-bed5-d448196b172e",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "348cd3eb-05c1-4231-b560-61668cd54547",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "f45a32f8-6fa0-4c3c-836d-1f71d52498cf",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Lists data ingestion feeds in a Chronicle instance."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "eb3e7721-3dbe-4998-b61c-e73f5bfb2a06",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/feeds?pageSize=<integer>&pageToken=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "feeds"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "pageSize",
+                                              "value": "<integer>"
+                                            },
+                                            {
+                                              "key": "pageToken",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "instanceId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"feeds\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"logType\": \"<string>\",\n      \"state\": \"ACTIVE\",\n      \"feedSourceDetails\": {}\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"logType\": \"<string>\",\n      \"state\": \"ACTIVE\",\n      \"feedSourceDetails\": {}\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:46:31.000Z",
+                                      "updatedAt": "2026-07-28T01:46:31.000Z",
+                                      "uid": "35240-eb3e7721-3dbe-4998-b61c-e73f5bfb2a06"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:46:31.000Z",
+                                  "updatedAt": "2026-07-28T01:46:31.000Z",
+                                  "uid": "35240-ebab34c4-7ae6-4215-b58c-79f0e075ff4d"
+                                },
+                                {
+                                  "name": "Google Cloud Chronicle Create a feed",
+                                  "id": "8a787ac5-79fc-40a0-ab0b-e49f8fdd7669",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"logType\": \"<string>\",\n  \"state\": \"ACTIVE\",\n  \"feedSourceDetails\": {}\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/feeds",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "instances",
+                                        ":instanceId",
+                                        "feeds"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "9854bc97-f89a-4682-b676-d8900cc15a17",
+                                          "key": "projectId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "34289d6b-8f9d-4b49-addd-2c67a9978ba4",
+                                          "key": "location",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "650956d8-ad38-4737-8699-6383af7d17c4",
+                                          "key": "instanceId",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        }
+                                      ]
+                                    },
+                                    "description": "Creates a new data ingestion feed."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "5f4b0dd0-afe2-4156-b50d-bc2a80c2a037",
+                                      "name": "Successful response",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"logType\": \"<string>\",\n  \"state\": \"ACTIVE\",\n  \"feedSourceDetails\": {}\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/projects/:projectId/locations/:location/instances/:instanceId/feeds",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "projects",
+                                            ":projectId",
+                                            "locations",
+                                            ":location",
+                                            "instances",
+                                            ":instanceId",
+                                            "feeds"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectId"
+                                            },
+                                            {
+                                              "key": "location"
+                                            },
+                                            {
+                                              "key": "instanceId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"name\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"logType\": \"<string>\",\n  \"state\": \"ACTIVE\",\n  \"feedSourceDetails\": {}\n}",
+                                      "createdAt": "2026-07-28T01:46:31.000Z",
+                                      "updatedAt": "2026-07-28T01:46:31.000Z",
+                                      "uid": "35240-5f4b0dd0-afe2-4156-b50d-bc2a80c2a037"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:46:31.000Z",
+                                  "updatedAt": "2026-07-28T01:46:31.000Z",
+                                  "uid": "35240-8a787ac5-79fc-40a0-ab0b-e49f8fdd7669"
+                                }
+                              ],
+                              "id": "e0759b1c-a5a3-4e0e-8e12-85ccd0a9beef",
+                              "createdAt": "2026-07-28T01:46:31.000Z",
+                              "updatedAt": "2026-07-28T01:46:31.000Z",
+                              "uid": "35240-e0759b1c-a5a3-4e0e-8e12-85ccd0a9beef"
+                            }
+                          ],
+                          "id": "04e477d3-e0c8-44fd-8aba-898fa208eeb8",
+                          "createdAt": "2026-07-28T01:46:31.000Z",
+                          "updatedAt": "2026-07-28T01:46:31.000Z",
+                          "uid": "35240-04e477d3-e0c8-44fd-8aba-898fa208eeb8"
+                        }
+                      ],
+                      "id": "55c30da0-a721-48f6-a930-410d2fe53f1f",
+                      "createdAt": "2026-07-28T01:46:31.000Z",
+                      "updatedAt": "2026-07-28T01:46:31.000Z",
+                      "uid": "35240-55c30da0-a721-48f6-a930-410d2fe53f1f"
+                    }
+                  ],
+                  "id": "c7473793-292e-4e08-a372-0717d7a070d3",
+                  "createdAt": "2026-07-28T01:46:31.000Z",
+                  "updatedAt": "2026-07-28T01:46:31.000Z",
+                  "uid": "35240-c7473793-292e-4e08-a372-0717d7a070d3"
+                }
+              ],
+              "id": "a5ecd48d-c906-4c13-ab9d-34bdb9c32964",
+              "createdAt": "2026-07-28T01:46:31.000Z",
+              "updatedAt": "2026-07-28T01:46:31.000Z",
+              "uid": "35240-a5ecd48d-c906-4c13-ab9d-34bdb9c32964"
+            }
+          ],
+          "id": "a678e42d-c92a-4718-9617-3cc9d7f2f0e7",
+          "createdAt": "2026-07-28T01:46:31.000Z",
+          "updatedAt": "2026-07-28T01:46:31.000Z",
+          "uid": "35240-a678e42d-c92a-4718-9617-3cc9d7f2f0e7"
+        }
+      ],
+      "id": "1356a169-f778-4b36-b431-7d1878a0983f",
+      "createdAt": "2026-07-28T01:46:31.000Z",
+      "updatedAt": "2026-07-28T01:46:31.000Z",
+      "uid": "35240-1356a169-f778-4b36-b431-7d1878a0983f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://chronicle.googleapis.com/v1alpha"
+    }
+  ]
+}
