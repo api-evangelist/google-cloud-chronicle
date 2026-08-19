@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Chronicle Alerts API",
+    "version": "v1alpha"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Chronicle List alerts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://chronicle.googleapis.com/v1alpha/projects/:projectId/locations/:location/instances/:instanceId/alerts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "instanceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression for alerts"
+              }
+            ]
+          },
+          "docs": "Lists alerts in a Chronicle instance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

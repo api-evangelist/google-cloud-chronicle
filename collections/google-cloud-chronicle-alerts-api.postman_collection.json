@@ -1,0 +1,217 @@
+{
+  "item": [
+    {
+      "id": "ec80d225-efc6-4ce8-8e50-6e7d820989ed",
+      "name": "Alerts",
+      "description": {
+        "content": "Operations for managing security alerts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bce1f820-7c83-4d39-b2ea-4bb70aebdd73",
+          "name": "Google Cloud Chronicle List alerts",
+          "request": {
+            "name": "Google Cloud Chronicle List alerts",
+            "description": {
+              "content": "Lists alerts in a Chronicle instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "locations",
+                ":location",
+                "instances",
+                ":instanceId",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter expression for alerts"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "location",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "instanceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c98011b8-3cfb-4020-998f-5d3c5b52c3fb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "locations",
+                    ":location",
+                    "instances",
+                    ":instanceId",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "location",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "instanceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"name\": \"string\",\n      \"ruleName\": \"string\",\n      \"severity\": \"LOW\",\n      \"state\": \"IN_PROGRESS\",\n      \"createTime\": \"1946-11-06T22:28:28.146Z\",\n      \"feedback\": \"TRUE_POSITIVE\"\n    },\n    {\n      \"name\": \"string\",\n      \"ruleName\": \"string\",\n      \"severity\": \"CRITICAL\",\n      \"state\": \"IN_PROGRESS\",\n      \"createTime\": \"2018-12-24T17:06:25.991Z\",\n      \"feedback\": \"TRUE_POSITIVE\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://chronicle.googleapis.com/v1alpha",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "158ff445-0980-4bcd-98d6-acad75e3ecd5",
+    "name": "Google Cloud Chronicle Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.\n\nContact Support:\n Name: Google Cloud Support",
+      "type": "text/plain"
+    }
+  }
+}
