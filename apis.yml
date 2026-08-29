@@ -5,6 +5,18 @@ description: >-
   enterprises to store, search, and analyze massive volumes of security telemetry data. Built on Google infrastructure,
   Chronicle provides sub-second search across petabytes of security data, threat detection using rules and intelligence,
   and investigation tools for security operations teams.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
