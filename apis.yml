@@ -66,6 +66,8 @@ apis:
   humanURL: https://cloud.google.com/chronicle/docs
   baseURL: https://chronicle.googleapis.com
   tags:
+  - Feed
+  tags_raw:
   - Feeds
   properties:
   - type: OpenAPI
