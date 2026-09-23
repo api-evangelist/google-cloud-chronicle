@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Chronicle Alerts Rules API
+  title: Google Cloud Chronicle Rules API
   description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
   version: v1alpha
   contact:
@@ -118,6 +118,28 @@ paths:
           description: Successful response
 components:
   parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    ruleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
     location:
       name: location
       in: path
@@ -130,29 +152,16 @@ components:
       required: true
       schema:
         type: string
-    ruleId:
-      name: ruleId
-      in: path
-      required: true
-      schema:
-        type: string
-    instanceId:
-      name: instanceId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
   schemas:
+    ListRulesResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        nextPageToken:
+          type: string
     Rule:
       type: object
       properties:
@@ -182,15 +191,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    ListRulesResponse:
-      type: object
-      properties:
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

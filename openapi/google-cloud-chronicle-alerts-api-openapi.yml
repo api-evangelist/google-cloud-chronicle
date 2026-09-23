@@ -43,6 +43,22 @@ paths:
                 $ref: '#/components/schemas/ListAlertsResponse'
 components:
   parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
     location:
       name: location
       in: path
@@ -55,22 +71,6 @@ components:
       required: true
       schema:
         type: string
-    instanceId:
-      name: instanceId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
   schemas:
     ListAlertsResponse:
       type: object

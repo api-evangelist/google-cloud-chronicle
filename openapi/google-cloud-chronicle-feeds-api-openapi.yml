@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Google Cloud Chronicle Alerts Feeds API
+  title: Google Cloud Chronicle Feeds API
   description: The Chronicle API provides programmatic access to Google Cloud's security analytics platform. It supports ingesting security telemetry, searching security data using UDM, managing detection rules, investigating alerts, and accessing threat intelligence.
   version: v1alpha
   contact:
@@ -61,18 +61,11 @@ paths:
                 $ref: '#/components/schemas/Feed'
 components:
   parameters:
-    location:
-      name: location
-      in: path
-      required: true
+    pageSize:
+      name: pageSize
+      in: query
       schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
+        type: integer
     instanceId:
       name: instanceId
       in: path
@@ -84,11 +77,18 @@ components:
       in: query
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
+    projectId:
+      name: projectId
+      in: path
+      required: true
       schema:
-        type: integer
+        type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Feed:
       type: object
