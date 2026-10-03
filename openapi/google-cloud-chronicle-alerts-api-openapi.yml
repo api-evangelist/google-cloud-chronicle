@@ -49,20 +49,9 @@ components:
       required: true
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
       schema:
         type: string
     instanceId:
@@ -71,16 +60,18 @@ components:
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
-    ListAlertsResponse:
-      type: object
-      properties:
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alert'
-        nextPageToken:
-          type: string
     Alert:
       type: object
       properties:
@@ -110,6 +101,15 @@ components:
           enum:
           - TRUE_POSITIVE
           - FALSE_POSITIVE
+    ListAlertsResponse:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+        nextPageToken:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

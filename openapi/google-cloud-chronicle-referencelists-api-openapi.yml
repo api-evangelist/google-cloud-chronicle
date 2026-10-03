@@ -44,20 +44,9 @@ components:
       required: true
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
       schema:
         type: string
     instanceId:
@@ -66,6 +55,17 @@ components:
       required: true
       schema:
         type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   schemas:
     ReferenceList:
       type: object

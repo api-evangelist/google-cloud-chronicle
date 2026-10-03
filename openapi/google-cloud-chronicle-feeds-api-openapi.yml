@@ -67,20 +67,9 @@ components:
       required: true
       schema:
         type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     pageToken:
       name: pageToken
       in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
       schema:
         type: string
     instanceId:
@@ -89,7 +78,27 @@ components:
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
+    ListFeedsResponse:
+      type: object
+      properties:
+        feeds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feed'
+        nextPageToken:
+          type: string
     Feed:
       type: object
       properties:
@@ -112,15 +121,6 @@ components:
         feedSourceDetails:
           type: object
           description: Source-specific configuration
-    ListFeedsResponse:
-      type: object
-      properties:
-        feeds:
-          type: array
-          items:
-            $ref: '#/components/schemas/Feed'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -117,16 +117,42 @@ paths:
         '200':
           description: Successful response
 components:
+  parameters:
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
+    ruleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageToken:
+      name: pageToken
+      in: query
+      schema:
+        type: string
+    instanceId:
+      name: instanceId
+      in: path
+      required: true
+      schema:
+        type: string
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   schemas:
-    ListRulesResponse:
-      type: object
-      properties:
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/Rule'
-        nextPageToken:
-          type: string
     Rule:
       type: object
       properties:
@@ -156,41 +182,15 @@ components:
         updateTime:
           type: string
           format: date-time
-  parameters:
-    location:
-      name: location
-      in: path
-      required: true
-      schema:
-        type: string
-    ruleId:
-      name: ruleId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    pageToken:
-      name: pageToken
-      in: query
-      schema:
-        type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    instanceId:
-      name: instanceId
-      in: path
-      required: true
-      schema:
-        type: string
+    ListRulesResponse:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        nextPageToken:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
