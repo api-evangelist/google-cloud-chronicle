@@ -111,6 +111,9 @@ apis:
   - type: JSONSchema
     url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: CapabilityMap
+    url: capabilities/google-cloud-chronicle-capability-edges.yml
+    name: Google Cloud Chronicle Business Capability Map
   - type: Website
     url: https://www.google.com/
   - type: PostmanWorkspace

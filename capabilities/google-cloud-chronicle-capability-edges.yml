@@ -1,0 +1,45 @@
+slug: google-cloud-chronicle
+provider: Google Cloud Chronicle
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Alerts
+  spec_file: google-cloud-chronicle-alerts-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.9
+  evidence: '"List alerts"; schema Alert; "cloud-native security information and event management (SIEM)
+    platform ... investigating alerts"'
+  reason: Alerts here are SIEM security detections for SOC investigation — Threat Detection & Response
+    Management, not business alerting.
+- tag: Rules
+  spec_file: google-cloud-chronicle-rules-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.88
+  evidence: '"Create a detection rule" / "managing detection rules, investigating alerts" on a "security
+    information and event management (SIEM) platform"'
+  reason: Operations create and maintain SIEM detection rules, which is the core of SOC/SIEM threat detection
+    and response, not generic business rules.
+- tag: Feeds
+  spec_file: google-cloud-chronicle-feeds-api-openapi.yml
+  capability_id: BC-620.30
+  capability_id_l1: BC-620
+  capability_name: Threat Detection & Response Management
+  confidence: 0.72
+  evidence: '"Create a feed", schema Feed; "It supports ingesting security telemetry ... managing detection
+    rules"'
+  reason: Feeds configure ingestion of security telemetry into the SIEM, feeding detection and response
+    operations; it is pipeline plumbing but specifically for SOC/SIEM data, so mapped with moderate confidence.
