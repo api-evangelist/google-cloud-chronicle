@@ -61,6 +61,17 @@ paths:
                 $ref: '#/components/schemas/Feed'
 components:
   parameters:
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
     location:
       name: location
       in: path
@@ -74,17 +85,6 @@ components:
         type: string
     instanceId:
       name: instanceId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-    projectId:
-      name: projectId
       in: path
       required: true
       schema:

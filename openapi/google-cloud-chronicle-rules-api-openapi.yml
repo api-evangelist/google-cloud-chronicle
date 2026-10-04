@@ -118,14 +118,25 @@ paths:
           description: Successful response
 components:
   parameters:
-    location:
-      name: location
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+    ruleId:
+      name: ruleId
       in: path
       required: true
       schema:
         type: string
-    ruleId:
-      name: ruleId
+    projectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+    location:
+      name: location
       in: path
       required: true
       schema:
@@ -141,17 +152,6 @@ components:
       required: true
       schema:
         type: string
-    projectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
   schemas:
     Rule:
       type: object
