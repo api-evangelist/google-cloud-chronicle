@@ -111,6 +111,12 @@ apis:
   - type: JSONSchema
     url: json-schema/google-cloud-chronicle-event-schema.json
 common:
+  - type: Plans
+    url: plans/google-cloud-chronicle-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/google-cloud-chronicle-rate-limits.yml
+  - type: FinOps
+    url: finops/google-cloud-chronicle-finops.yml
   - type: CapabilityMap
     url: capabilities/google-cloud-chronicle-capability-edges.yml
     name: Google Cloud Chronicle Business Capability Map
