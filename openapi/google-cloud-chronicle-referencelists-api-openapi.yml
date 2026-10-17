@@ -38,19 +38,8 @@ paths:
                 $ref: '#/components/schemas/ListReferenceListsResponse'
 components:
   parameters:
-    pageSize:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
     projectId:
       name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-    location:
-      name: location
       in: path
       required: true
       schema:
@@ -60,13 +49,33 @@ components:
       in: query
       schema:
         type: string
+    location:
+      name: location
+      in: path
+      required: true
+      schema:
+        type: string
     instanceId:
       name: instanceId
       in: path
       required: true
       schema:
         type: string
+    pageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
   schemas:
+    ListReferenceListsResponse:
+      type: object
+      properties:
+        referenceLists:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferenceList'
+        nextPageToken:
+          type: string
     ReferenceList:
       type: object
       properties:
@@ -86,15 +95,6 @@ components:
         updateTime:
           type: string
           format: date-time
-    ListReferenceListsResponse:
-      type: object
-      properties:
-        referenceLists:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReferenceList'
-        nextPageToken:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2
