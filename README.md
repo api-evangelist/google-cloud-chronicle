@@ -1,4 +1,4 @@
-# Google Cloud Chronicle (google-cloud-chronicle)
+# Google Cloud Chronicle
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,68 +66,158 @@
 
 Google Cloud Chronicle is a cloud-native security information and event management (SIEM) platform that enables enterprises to store, search, and analyze massive volumes of security telemetry data. Built on Google infrastructure, Chronicle provides sub-second search across petabytes of security data, threat detection using rules and intelligence, and investigation tools for security operations teams.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-cloud-chronicle/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-cloud-chronicle/refs/heads/main/apis.yml)
+**Areas:** Incident Response · Log Management · Security Analytics · Security Operations · SIEM · Threat Detection
 
-## Scope
+## Google Cloud Chronicle on APIs.io
 
-- **Type:** Index
+Everything profiled for Google Cloud Chronicle is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-cloud-chronicle/](https://apis.io/providers/google-cloud-chronicle/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Incident Response
-- Log Management
-- Security Analytics
-- Security Operations
-- SIEM
-- Threat Detection
+- [Google Cloud Chronicle Alerts API](https://apis.io/apis/google-cloud-chronicle/google-cloud-chronicle-alerts-api/) — Operations for managing security alerts
+- [Google Cloud Chronicle Feeds API](https://apis.io/apis/google-cloud-chronicle/google-cloud-chronicle-feeds-api/) — Operations for managing data ingestion feeds
+- [Google Cloud Chronicle ReferenceLists API](https://apis.io/apis/google-cloud-chronicle/google-cloud-chronicle-referencelists-api/) — Operations for managing reference lists
+- [Google Cloud Chronicle Rules API](https://apis.io/apis/google-cloud-chronicle/google-cloud-chronicle-rules-api/) — Operations for managing detection rules
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-13
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Chronicle API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Chronicle API provides programmatic access to Chronicle's security analytics platform. Developers can use the API to ingest security telemetry, search across normalized security data using UDM (Unified Data Model), manage detection rules, investigate alerts, and retrieve threat intelligence. The API supports creating and managing detection rules, running retrohunts, and accessing curated threat detections.
+- [Google Cloud Chronicle Agentic Access](https://apis.io/agentic-access/google-cloud-chronicle/google-cloud-chronicle-agentic-access/)
 
-- **Human URL:** [https://cloud.google.com/chronicle/docs](https://cloud.google.com/chronicle/docs)
-- **Base URL:** `https://chronicle.googleapis.com`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Detection Rules
-- Security Events
-- Threat Intelligence
-- UDM Search
+- [Google Cloud Chronicle UDM Event](https://apis.io/schemas/google-cloud-chronicle/google-cloud-chronicle-event/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://cloud.google.com/chronicle/docs/reference/rest)
-- [OpenAPI](openapi/chronicle-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/chronicle-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/chronicle-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://cloud.google.com/chronicle/docs/reference/rest#authentication)
-- [JSON Schema](json-schema/google-cloud-chronicle-event-schema.json) — [JSON Schema](https://json-schema.org/specification)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Google Cloud Chronicle Context](https://apis.io/jsonld/google-cloud-chronicle/google-cloud-chronicle-context/)
 
-- [GitHub Organization](https://github.com/chronicle)
-- [LinkedIn](https://www.linkedin.com/company/chroniclesec)
-- [Portal](https://cloud.google.com/chronicle)
-- [Getting Started](https://cloud.google.com/chronicle/docs/get-started)
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Google Cloud Chronicle API](https://apis.io/collections/google-cloud-chronicle/open-chronicle-api/)
+- [Google Cloud Chronicle Alerts API](https://apis.io/collections/google-cloud-chronicle/open-google-cloud-chronicle-alerts-api/)
+- [Google Cloud Chronicle Alerts Feeds API](https://apis.io/collections/google-cloud-chronicle/open-google-cloud-chronicle-feeds-api/)
+- [Google Cloud Chronicle Alerts ReferenceLists API](https://apis.io/collections/google-cloud-chronicle/open-google-cloud-chronicle-referencelists-api/)
+- [Google Cloud Chronicle Alerts Rules API](https://apis.io/collections/google-cloud-chronicle/open-google-cloud-chronicle-rules-api/)
+- [Google Cloud Chronicle Alerts API](https://apis.io/collections/google-cloud-chronicle/postman-google-cloud-chronicle-alerts-api/)
+- [Google Cloud Chronicle Alerts Feeds API](https://apis.io/collections/google-cloud-chronicle/postman-google-cloud-chronicle-feeds-api/)
+- [Google Cloud Chronicle Alerts ReferenceLists API](https://apis.io/collections/google-cloud-chronicle/postman-google-cloud-chronicle-referencelists-api/)
+- [Google Cloud Chronicle Alerts Rules API](https://apis.io/collections/google-cloud-chronicle/postman-google-cloud-chronicle-rules-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Google Cloud Chronicle — jsonschema rules](https://apis.io/rules/google-cloud-chronicle/google-cloud-chronicle-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Google Cloud Chronicle Authentication](https://apis.io/security/google-cloud-chronicle/google-cloud-chronicle-authentication/)
+- [Google Cloud Chronicle Domain Security](https://apis.io/security/google-cloud-chronicle/google-cloud-chronicle-domain-security/)
+- [Google Cloud Chronicle Vulnerability Disclosure](https://apis.io/security/google-cloud-chronicle/google-cloud-chronicle-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Google Cloud Chronicle Scopes](https://apis.io/scopes/google-cloud-chronicle/google-cloud-chronicle-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Google Cloud Chronicle Plans Pricing](https://apis.io/plans/google-cloud-chronicle/google-cloud-chronicle-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Google Cloud Chronicle Rate Limits](https://apis.io/rate-limits/google-cloud-chronicle/google-cloud-chronicle-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Google Cloud Chronicle Finops](https://apis.io/finops/google-cloud-chronicle/google-cloud-chronicle-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.google.com/)
 - [Documentation](https://cloud.google.com/chronicle/docs)
-- [Authentication](https://cloud.google.com/chronicle/docs/reference/rest#authentication)
+- [Getting started](https://cloud.google.com/chronicle/docs/get-started)
 - [Pricing](https://cloud.google.com/chronicle/pricing)
-- [Terms of Service](https://cloud.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
-- [Status Page](https://status.cloud.google.com)
 - [Support](https://cloud.google.com/chronicle/docs/support)
-- [JSON-LD](json-ld/google-cloud-chronicle-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Integrations](https://cloud.google.com/marketplace)
+- [Terms of service](https://cloud.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/chronicle)
+- [Status](https://status.cloud.google.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 42.8** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 56.1 |
+| Contract governance | 9.8 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 36.9 |
+| Access clarity | 28.9 |
+
+**Agent readiness 24.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-cloud-chronicle/](https://apis.io/providers/google-cloud-chronicle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Cloud Chronicle: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-cloud-chronicle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
